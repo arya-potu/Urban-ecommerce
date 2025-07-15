@@ -1,0 +1,38 @@
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const connectDB = require("./config/db");
+const productRoutes = require("./routes/productRoutes");
+const cartRoutes = require("./routes/cartRoutes");
+const checkoutRoutes = require("./routes/checkoutRoutes");
+dotenv.config();
+
+
+console.log("Starting server.js"); // Add this line
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+const userRoutes = require("./routes/userRoutes");
+app.use("/api/users", userRoutes);
+
+app.use("/api/products", productRoutes);
+app.use("/api/cart", cartRoutes);
+app.use("/api/checkout", checkoutRoutes);
+
+const PORT = process.env.PORT || 3000;
+
+// Connect to MongoDB
+console.log("Calling connectDB()"); // Add this line
+connectDB();
+console.log("connectDB() called"); // Add this line
+
+app.get("/", (req, res) => {
+    res.send("Welcome to the backend server!");
+});
+
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
