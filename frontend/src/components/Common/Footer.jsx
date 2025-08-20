@@ -90,7 +90,7 @@ const Footer = () => {
       {/* Footer Bottom */}
       <div className='container mx-auto mt-12 px-6 lg:px-0 border-t border-gray-200 pt-6'>
         <p className='text-gray-500 text-sm tracking-tight text-center'>
-          © 2025, <span className='text-black font-medium'>CompileTab</span>. All Rights Reserved.
+          © 2025, <span className='text-black font-medium'>Urban</span>. All Rights Reserved.
         </p>
       </div>
     </footer>
