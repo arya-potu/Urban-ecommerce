@@ -19,9 +19,7 @@ const FilterSidebar = () => {
   const [priceRange, setPriceRange] = useState([0, 100]);
 
   const categories = ["Top Wear", "Bottom Wear"];
-  const colors = [
-    "Red", "Blue", "Black", "Green", "Yellow", "Gray", "White", "Pink", "Beige", "Navy",
-  ];
+  const colors = ["Red", "Blue", "Black", "Green", "Yellow", "Gray", "White", "Pink", "Beige", "Navy"];
   const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
   const materials = ["Cotton", "Wool", "Denim", "Polyester", "Silk", "Linen", "Viscose", "Fleece"];
   const brands = ["Urban Threads", "Modern Fit", "Street Style", "Beach Breeze", "Fashionista", "ChicStyle"];
@@ -97,49 +95,54 @@ const FilterSidebar = () => {
 
   const renderCheckboxGroup = (label, options, name) => (
     <div className="mb-6">
-      <label className="block text-gray-600 font-medium mb-2">{label}</label>
-      {options.map((opt) => (
-        <div key={opt} className="flex items-center mb-1">
-          <input
-            type="checkbox"
-            name={name}
-            value={opt}
-            checked={filters[name].includes(opt)}
-            onChange={handleFilterChange}
-            className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300"
-          />
-          <span className="text-gray-700">{opt}</span>
-        </div>
-      ))}
+      <h4 className="text-gray-800 font-semibold mb-3 border-b border-gray-200 pb-1 tracking-wide">{label}</h4>
+      <div className="space-y-2">
+        {options.map((opt) => (
+          <label key={opt} className="flex items-center gap-2 cursor-pointer group">
+            <input
+              type="checkbox"
+              name={name}
+              value={opt}
+              checked={filters[name].includes(opt)}
+              onChange={handleFilterChange}
+              className="h-4 w-4 rounded border-gray-300 text-indigo-500 focus:ring-indigo-400 transition"
+            />
+            <span className="text-gray-600 group-hover:text-indigo-600 transition">{opt}</span>
+          </label>
+        ))}
+      </div>
     </div>
   );
 
   const renderRadioGroup = (label, options, name) => (
     <div className="mb-6">
-      <label className="block text-gray-600 font-medium mb-2">{label}</label>
-      {options.map((opt) => (
-        <div key={opt} className="flex items-center mb-1">
-          <input
-            type="radio"
-            name={name}
-            value={opt}
-            checked={filters[name] === opt}
-            onChange={handleFilterChange}
-            className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300"
-          />
-          <span className="text-gray-700">{opt}</span>
-        </div>
-      ))}
+      <h4 className="text-gray-800 font-semibold mb-3 border-b border-gray-200 pb-1 tracking-wide">{label}</h4>
+      <div className="space-y-2">
+        {options.map((opt) => (
+          <label key={opt} className="flex items-center gap-2 cursor-pointer group">
+            <input
+              type="radio"
+              name={name}
+              value={opt}
+              checked={filters[name] === opt}
+              onChange={handleFilterChange}
+              className="h-4 w-4 border-gray-300 text-indigo-500 focus:ring-indigo-400 transition"
+            />
+            <span className="text-gray-600 group-hover:text-indigo-600 transition">{opt}</span>
+          </label>
+        ))}
+      </div>
     </div>
   );
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-lg">
-      <div className="flex justify-between items-center mb-4">
-        <h3 className="text-xl font-semibold text-gray-800">Filters</h3>
+    <div className="p-6 bg-gradient-to-br from-white/80 to-gray-50/60 backdrop-blur-xl border border-gray-200 rounded-2xl shadow-lg">
+      {/* Header */}
+      <div className="flex justify-between items-center mb-6">
+        <h3 className="text-xl font-bold text-gray-900 tracking-wide">✨ Filters</h3>
         <button
           onClick={handleClearAll}
-          className="text-sm text-blue-500 hover:text-white hover:bg-blue-500 px-3 py-1 rounded transition"
+          className="text-sm text-indigo-500 font-medium hover:text-white hover:bg-indigo-500 px-3 py-1.5 rounded-lg shadow-sm transition"
         >
           Clear All
         </button>
@@ -148,17 +151,18 @@ const FilterSidebar = () => {
       {renderRadioGroup("Category", categories, "category")}
       {renderRadioGroup("Gender", genders, "gender")}
 
+      {/* Colors */}
       <div className="mb-6">
-        <label className="block text-gray-600 font-medium mb-2">Color</label>
-        <div className="flex flex-wrap gap-2">
+        <h4 className="text-gray-800 font-semibold mb-3 border-b border-gray-200 pb-1 tracking-wide">Color</h4>
+        <div className="flex flex-wrap gap-3">
           {colors.map((color) => (
             <button
               key={color}
               name="color"
               value={color}
               onClick={(e) => handleFilterChange({ target: e.target })}
-              className={`w-8 h-8 rounded-full border border-gray-300 cursor-pointer transition transform hover:scale-105 ${
-                filters.color === color ? "ring-2 ring-blue-500" : ""
+              className={`w-9 h-9 rounded-full border shadow-sm cursor-pointer transition transform hover:scale-110 ${
+                filters.color === color ? "ring-2 ring-indigo-500" : "border-gray-300"
               }`}
               style={{ backgroundColor: color.toLowerCase() }}
             />
@@ -170,8 +174,9 @@ const FilterSidebar = () => {
       {renderCheckboxGroup("Material", materials, "material")}
       {renderCheckboxGroup("Brand", brands, "brand")}
 
+      {/* Price */}
       <div className="mb-8">
-        <label className="block text-gray-600 font-medium mb-2">Price Range</label>
+        <h4 className="text-gray-800 font-semibold mb-3 border-b border-gray-200 pb-1 tracking-wide">Price Range</h4>
         <input
           type="range"
           name="priceRange"
@@ -179,11 +184,11 @@ const FilterSidebar = () => {
           max={100}
           value={priceRange[1]}
           onChange={handlePriceChange}
-          className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+          className="w-full accent-indigo-500 cursor-pointer"
         />
-        <div className="flex justify-between text-gray-600 mt-2">
+        <div className="flex justify-between text-gray-700 mt-2 text-sm">
           <span>$0</span>
-          <span>${priceRange[1]}</span>
+          <span className="font-semibold text-indigo-600">${priceRange[1]}</span>
         </div>
       </div>
     </div>
