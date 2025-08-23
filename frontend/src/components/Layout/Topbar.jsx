@@ -4,34 +4,34 @@ import { RiTwitterXLine } from "react-icons/ri";
 
 const Topbar = () => {
   return (
-    <div className="bg-gradient-to-r from-rabbit-red via-red-700 to-rabbit-red text-white text-lg tracking-wide">
-      <div className="container mx-auto flex justify-between items-center py-3 px-6">
+    <div className="bg-neutral-950 text-neutral-200 text-xs md:text-sm tracking-[0.25em] border-b border-neutral-800">
+      <div className="container mx-auto flex justify-between items-center py-2 px-4 md:px-8">
         
         {/* Social Icons */}
         <div className="hidden md:flex items-center space-x-5">
-          <a href="#" className="hover:scale-110 transition-transform duration-300 hover:text-gray-200">
-            <TbBrandMeta className="h-6 w-6" />
+          <a href="#" className="hover:text-neutral-400 transition-colors duration-300">
+            <TbBrandMeta className="h-5 w-5" />
           </a>
-          <a href="#" className="hover:scale-110 transition-transform duration-300 hover:text-gray-200">
-            <IoLogoInstagram className="h-6 w-6" />
+          <a href="#" className="hover:text-neutral-400 transition-colors duration-300">
+            <IoLogoInstagram className="h-5 w-5" />
           </a>
-          <a href="#" className="hover:scale-110 transition-transform duration-300 hover:text-gray-200">
-            <RiTwitterXLine className="h-5 w-5" />
+          <a href="#" className="hover:text-neutral-400 transition-colors duration-300">
+            <RiTwitterXLine className="h-4 w-4" />
           </a>
         </div>
 
         {/* Announcement */}
-        <div className="text-sm md:text-base text-center flex-grow font-light">
-          <span className="uppercase tracking-widest">
-            ✦ We ship worldwide — Fast & Reliable ✦
+        <div className="flex-grow text-center font-light">
+          <span className="uppercase text-neutral-300">
+            ✦ We Ship Worldwide — Fast & Reliable ✦
           </span>
         </div>
 
         {/* Contact */}
-        <div className="text-sm hidden md:block font-medium">
+        <div className="hidden md:block font-medium">
           <a
             href="tel:+916305413271"
-            className="hover:text-gray-200 transition-colors duration-300"
+            className="hover:text-neutral-400 transition-colors duration-300"
           >
             +91 6305413271
           </a>
