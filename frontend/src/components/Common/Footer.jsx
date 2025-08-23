@@ -36,18 +36,33 @@ const Footer = () => {
         </div>
 
         {/* Shop Links */}
-        <div>
-          <h3 className='text-lg font-semibold text-gray-800 mb-4'>Shop</h3>
-          <ul className='space-y-2 text-gray-600'>
-            {["Men's Top Wear", "Women's Top Wear", "Men's Bottom Wear", "Women's Bottom Wear"].map((item, idx) => (
-              <li key={idx}>
-                <Link to="#" className="hover:text-black hover:underline underline-offset-4 transition-all">
-                  {item}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+       {/* Shop Links */}
+<div>
+  <h3 className='text-lg font-semibold text-gray-800 mb-4'>Shop</h3>
+  <ul className='space-y-2 text-gray-600'>
+    <li>
+      <Link to="/collections/all?gender=Men&category=Top%20Wear" className="hover:text-black hover:underline underline-offset-4 transition-all">
+        Men's Top Wear
+      </Link>
+    </li>
+    <li>
+      <Link to="/collections/all?gender=Women&category=Top%20Wear" className="hover:text-black hover:underline underline-offset-4 transition-all">
+        Women's Top Wear
+      </Link>
+    </li>
+    <li>
+      <Link to="/collections/all?gender=Men&category=Bottom%20Wear" className="hover:text-black hover:underline underline-offset-4 transition-all">
+        Men's Bottom Wear
+      </Link>
+    </li>
+    <li>
+      <Link to="/collections/all?gender=Women&category=Bottom%20Wear" className="hover:text-black hover:underline underline-offset-4 transition-all">
+        Women's Bottom Wear
+      </Link>
+    </li>
+  </ul>
+</div>
+
 
         {/* Support Links */}
         <div>
