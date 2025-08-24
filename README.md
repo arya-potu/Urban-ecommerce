@@ -143,8 +143,7 @@ urban-ecommerce/
 │   └── tailwind.config.js
 
 
-
-
+```
 🛠️ Tech Stack
     Frontend
       React (Vite)
@@ -161,26 +160,6 @@ urban-ecommerce/
 
   Deployment
     Frontend + Backend deployed via Vercel
-
-## 📂 Project Structure
-
-```text
-urban-ecommerce/
-├── backend/
-│   ├── server.js
-│   ├── config/db.js
-│   ├── routes/ (products, auth, admin, checkout, upload)
-│   ├── models/ (User, Product, Order)
-│   └── middleware/ (auth.js)
-│
-├── frontend/
-│   ├── src/
-│   │   ├── App.jsx, main.jsx
-│   │   ├── redux/ (store, slices)
-│   │   ├── components/ (UI, Cart, Products, Admin, etc.)
-│   │   └── pages/
-│   └── tailwind.config.js
-
 
 ⚙️ Setup & Installation
 1️⃣ Clone the repository
