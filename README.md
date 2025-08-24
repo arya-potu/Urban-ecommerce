@@ -3,6 +3,8 @@
 A **full-stack e-commerce web application** built with **React + Vite (frontend)** and **Node.js + Express + MongoDB (backend)**.  
 It supports product browsing, filtering, cart, checkout with PayPal, authentication, and an admin dashboard.
 
+🔗 **Live Demo:** [urban-ecommerce-nw3f.vercel.app](https://urban-ecommerce-nw3f.vercel.app/)
+
 ---
 
 ## 🚀 Features
